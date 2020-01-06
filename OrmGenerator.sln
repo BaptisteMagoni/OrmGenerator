@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModuleOrmGenerator", "ModuleOrmGenerator\ModuleOrmGenerator.csproj", "{B7C7E4A7-0A1E-4BE1-95C5-D02D3811B997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrmGenerator", "OrmGenerator\OrmGenerator.csproj", "{00C7BA3B-6149-487C-B4C5-C444F6EE7606}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7C7E4A7-0A1E-4BE1-95C5-D02D3811B997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C7E4A7-0A1E-4BE1-95C5-D02D3811B997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C7E4A7-0A1E-4BE1-95C5-D02D3811B997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C7E4A7-0A1E-4BE1-95C5-D02D3811B997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C7BA3B-6149-487C-B4C5-C444F6EE7606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C7BA3B-6149-487C-B4C5-C444F6EE7606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C7BA3B-6149-487C-B4C5-C444F6EE7606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C7BA3B-6149-487C-B4C5-C444F6EE7606}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7ACC245-F03D-446D-821D-3D693839283F}
+	EndGlobalSection
+EndGlobal
