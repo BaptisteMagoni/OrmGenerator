@@ -1,7 +1,9 @@
-﻿using ModuleOrmGenerator.dal.interfaces;
+﻿using ModuleOrmGenerator.dal.constant;
+using ModuleOrmGenerator.dal.interfaces;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace ModuleOrmGenerator.dal.tables
@@ -19,16 +21,37 @@ namespace ModuleOrmGenerator.dal.tables
                 switch (type)
                 {
                     case SqlconnectorType.MYSQL:
-                        MySqlConnection conn = (MySqlConnection)connector;
-                        conn.Open();
+                        using (MySqlConnection conn = (MySqlConnection)connector)
+                        {
+                            conn.Open();
+                            MySqlCommand command = new MySqlCommand(QueryMYSQL.SELECT_COLUMNS_OF_TABLE, conn);
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                    tables.Add(reader.GetString("column_name"));
+                            }
+                            conn.Close();
+                        }
                         break;
                     case SqlconnectorType.SQLSERVER:
+                        using (SqlConnection conn = (SqlConnection)connector)
+                        {
+                            conn.Open();
+                            SqlCommand command = new SqlCommand(QuerySQLSERVER.SELECT_COLUMNS_OF_TABLE, conn);
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                    for (int i = 0; i < reader.FieldCount; i++)
+                                        tables.Add(reader.GetValue(i).ToString());
+                            }
+                            conn.Close();
+                        }
                         break;
                 }
             }
             catch(Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
 
             return tables;

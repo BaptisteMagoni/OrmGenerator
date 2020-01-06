@@ -13,13 +13,13 @@
 
   <ItemGroup>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\Documents\drivers\mysql-connector.net\MySql.Data.dll</HintPath>
+      <HintPath>..\mysql-connector.net\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data.Entity">
-      <HintPath>..\..\..\..\Documents\drivers\mysql-connector.net\MySql.Data.Entity.dll</HintPath>
+      <HintPath>..\mysql-connector.net\MySql.Data.Entity.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Web">
-      <HintPath>..\..\..\..\Documents\drivers\mysql-connector.net\MySql.Web.dll</HintPath>
+      <HintPath>..\mysql-connector.net\MySql.Web.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Common">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Facades\System.Data.Common.dll</HintPath>

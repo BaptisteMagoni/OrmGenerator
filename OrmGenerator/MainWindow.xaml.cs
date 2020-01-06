@@ -23,9 +23,12 @@ namespace OrmGenerator
     {
         public MainWindow()
         {
-            InitializeComponent();
             DAOFactory dao = new DAOFactory();
             Object connection = dao.GetConnection(SqlconnectorType.MYSQL);
+
+            InitializeComponent();
+            
+            var test = dao.GetDAOTable().ShowColumnsByTableName(SqlconnectorType.MYSQL, connection);
         }
     }
 }

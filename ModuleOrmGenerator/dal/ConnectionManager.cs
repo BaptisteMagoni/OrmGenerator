@@ -31,10 +31,15 @@ namespace ModuleOrmGenerator.dal
 
         public MySqlConnection GetMySqlConnection()
         {
-            
-            MySqlConnection c = new MySqlConnection(String.Format("server={0};database={1};uid={2};pwd={3}", m_hostname, m_database, m_user, m_password));
-            c.Open();
-            return c;
+            MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder
+            {
+                Server = m_hostname,
+                Port = 3306,
+                UserID = m_user,
+                Password = m_password,
+                Database = m_database,
+            };
+            return new MySqlConnection(connectionString.ToString());
         }
 
         public SqlConnection GetSqlConnection()
@@ -50,6 +55,5 @@ namespace ModuleOrmGenerator.dal
             connection.ConnectionString = scsb.ConnectionString;
             return connection;
         }
-
     }
 }
