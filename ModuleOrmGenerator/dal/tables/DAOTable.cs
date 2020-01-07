@@ -36,8 +36,8 @@ namespace ModuleOrmGenerator.dal.tables
                     case SqlconnectorType.SQLSERVER:
                         using (SqlConnection conn = (SqlConnection)connector)
                         {
-                            conn.Open();
                             SqlCommand command = new SqlCommand(QuerySQLSERVER.SELECT_COLUMNS_OF_TABLE, conn);
+                            command.Connection.Open();
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
                                 while (reader.Read())

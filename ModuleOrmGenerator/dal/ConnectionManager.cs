@@ -39,7 +39,17 @@ namespace ModuleOrmGenerator.dal
                 Password = m_password,
                 Database = m_database,
             };
-            return new MySqlConnection(connectionString.ToString());
+            MySqlConnection connection = new MySqlConnection(connectionString.ToString());
+            try
+            {
+                connection.Open();
+                connection.Close();
+            }
+            catch
+            {
+                return null;
+            }
+            return connection;
         }
 
         public SqlConnection GetSqlConnection()
@@ -53,6 +63,17 @@ namespace ModuleOrmGenerator.dal
             };
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = scsb.ConnectionString;
+
+            try
+            {
+                connection.Open();
+                connection.Close();
+            }
+            catch
+            {
+                return null;
+            }
+
             return connection;
         }
     }

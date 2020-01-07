@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ZasTa\\OneDrive\\Bureau\\Workspace C#\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj": {}
+    "C:\\Users\\ZasTa\\OneDrive\\Bureau\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ZasTa\\OneDrive\\Bureau\\Workspace C#\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj": {
+    "C:\\Users\\ZasTa\\OneDrive\\Bureau\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ZasTa\\OneDrive\\Bureau\\Workspace C#\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj",
+        "projectUniqueName": "C:\\Users\\ZasTa\\OneDrive\\Bureau\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj",
         "projectName": "ModuleOrmGenerator",
-        "projectPath": "C:\\Users\\ZasTa\\OneDrive\\Bureau\\Workspace C#\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj",
+        "projectPath": "C:\\Users\\ZasTa\\OneDrive\\Bureau\\OrmGenerator\\ModuleOrmGenerator\\ModuleOrmGenerator.csproj",
         "packagesPath": "C:\\Users\\ZasTa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ZasTa\\OneDrive\\Bureau\\Workspace C#\\OrmGenerator\\ModuleOrmGenerator\\obj\\",
+        "outputPath": "C:\\Users\\ZasTa\\OneDrive\\Bureau\\OrmGenerator\\ModuleOrmGenerator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -42,10 +42,6 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.0, )"
-            },
             "Microsoft.SqlServer.Compact": {
               "target": "Package",
               "version": "[4.0.8876.1, )"

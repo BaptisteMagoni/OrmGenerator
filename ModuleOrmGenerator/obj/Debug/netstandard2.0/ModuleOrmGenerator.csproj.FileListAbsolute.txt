@@ -25,3 +25,16 @@ C:\Users\Baptiste Magoni\Desktop\OrmGenerator\ModuleOrmGenerator\bin\Debug\netst
 C:\Users\Baptiste Magoni\Desktop\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\MySql.Web.dll
 C:\Users\Baptiste Magoni\Desktop\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\System.Data.Common.dll
 C:\Users\Baptiste Magoni\Desktop\OrmGenerator\ModuleOrmGenerator\obj\Debug\netstandard2.0\ModuleOrmGenerator.csproj.CopyComplete
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\ModuleOrmGenerator.deps.json
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\ModuleOrmGenerator.dll
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\ModuleOrmGenerator.pdb
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\MySql.Data.dll
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\MySql.Data.Entity.dll
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\MySql.Web.dll
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\bin\Debug\netstandard2.0\System.Data.Common.dll
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\obj\Debug\netstandard2.0\ModuleOrmGenerator.csprojAssemblyReference.cache
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\obj\Debug\netstandard2.0\ModuleOrmGenerator.AssemblyInfoInputs.cache
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\obj\Debug\netstandard2.0\ModuleOrmGenerator.AssemblyInfo.cs
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\obj\Debug\netstandard2.0\ModuleOrmGenerator.csproj.CopyComplete
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\obj\Debug\netstandard2.0\ModuleOrmGenerator.dll
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\ModuleOrmGenerator\obj\Debug\netstandard2.0\ModuleOrmGenerator.pdb

@@ -26,9 +26,17 @@ namespace OrmGenerator
             DAOFactory dao = new DAOFactory();
             Object connection = dao.GetConnection(SqlconnectorType.MYSQL);
 
-            InitializeComponent();
-            
-            var test = dao.GetDAOTable().ShowColumnsByTableName(SqlconnectorType.MYSQL, connection);
+            if (connection != null)
+            {
+
+                InitializeComponent();
+                var test = dao.GetDAOTable().ShowColumnsByTableName(SqlconnectorType.MYSQL, connection);
+
+            }
+            else
+            {
+                MessageBox.Show("Problème de connection à la base de données vérifier votre connexion !");
+            }
         }
     }
 }
