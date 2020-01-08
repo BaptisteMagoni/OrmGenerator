@@ -1,6 +1,9 @@
-﻿using ModuleOrmGenerator.dal;
+﻿using Microsoft.Win32;
+using ModuleOrmGenerator.dal;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WinForm = System.Windows.Forms;
 
 namespace OrmGenerator
 {
@@ -36,6 +40,18 @@ namespace OrmGenerator
             else
             {
                 MessageBox.Show("Problème de connection à la base de données vérifier votre connexion !");
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void Button_Depos_Click(object sender, RoutedEventArgs e)
+        {
+            WinForm.FolderBrowserDialog dialog = new WinForm.FolderBrowserDialog();
+            WinForm.DialogResult result = dialog.ShowDialog();
+
+            if (result == WinForm.DialogResult.OK)
+            {
+                TextBox_Depos.Text = dialog.SelectedPath;
             }
         }
     }
