@@ -68,3 +68,5 @@ C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\OrmGenerator.
 C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\OrmGenerator.csproj.CopyComplete
 C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\OrmGenerator.exe
 C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\OrmGenerator.pdb
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\Configuration.g.cs
+C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\Configuration.baml

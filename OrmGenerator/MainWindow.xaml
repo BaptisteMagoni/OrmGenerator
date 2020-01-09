@@ -5,7 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrmGenerator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="Button_style" TargetType="Button">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="90"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="31*"/>
@@ -27,19 +36,30 @@
                 <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="50*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.ColumnSpan="2">
+            <!--<Grid Grid.ColumnSpan="2">
                 <Border BorderBrush="Black" BorderThickness="2">
                     
                 </Border>
             </Grid>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <Border BorderBrush="Black" BorderThickness="2"></Border>
+            </Grid>-->
+            <!--Button dépos-->
             <Grid Grid.Column="0" Grid.Row="0">
-                <Button Content="Dépos" HorizontalAlignment="Center" VerticalAlignment="Center" Name="Button_Depos" Height="20" Width="75" Click="Button_Depos_Click"/>
+                <Button Style="{StaticResource Button_style}" Content="Dépos" Name="Button_Depos" Click="Button_Depos_Click"/>
             </Grid>
+            <!--TextBox dépos-->
             <Grid Grid.Column="1" Grid.Row="0">
                 <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" Name="TextBox_Depos" VerticalAlignment="Center" Width="510"/>
+            </Grid>
+            
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Button Style="{StaticResource Button_style}" Content="Configuration" Name="Button_Configuration" Click="Button_Configuration_Click"/>
             </Grid>
         </Grid>
     </Grid>

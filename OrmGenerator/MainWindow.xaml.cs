@@ -54,5 +54,11 @@ namespace OrmGenerator
                 TextBox_Depos.Text = dialog.SelectedPath;
             }
         }
+
+        private void Button_Configuration_Click(object sender, RoutedEventArgs e)
+        {
+            Configuration configuration = new Configuration();
+            configuration.Show();
+        }
     }
 }
