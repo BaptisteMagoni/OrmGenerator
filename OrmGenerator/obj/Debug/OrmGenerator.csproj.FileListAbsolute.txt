@@ -70,3 +70,40 @@ C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\OrmGenerator.
 C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\OrmGenerator.pdb
 C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\Configuration.g.cs
 C:\Users\ZasTa\OneDrive\Bureau\OrmGenerator\OrmGenerator\obj\Debug\Configuration.baml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Data.SqlClient.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Data.SqlClient.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\obj\Debug\Configuration.g.cs
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\obj\Debug\Configuration.baml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\EntityFramework.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Google.Protobuf.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Renci.SshNet.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\EntityFramework.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Google.Protobuf.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MySql.Data.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Renci.SshNet.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\obj\Debug\OrmGenerator.exe.config
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MaterialDesignColors.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Buffers.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Memory.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Google.Protobuf.pdb
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MaterialDesignColors.pdb
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Buffers.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Memory.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\AutoMapper.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\AutoMapper.pdb
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\AutoMapper.xml
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ZasTa\OneDrive\Bureau\Workspace C#\OrmGenerator\OrmGenerator\bin\Debug\Newtonsoft.Json.xml

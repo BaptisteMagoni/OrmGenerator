@@ -3,10 +3,132 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
         xmlns:local="clr-namespace:OrmGenerator"
         mc:Ignorable="d"
-        Title="Configuration" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Configuration" Height="441.594" Width="684.555" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="TextBox_style" TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="22"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="17*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="3">
+                <Label Content="Sauvegarde : " VerticalAlignment="Center" HorizontalAlignment="Right" />
+            </Grid>
+            <Grid Grid.Column="4">
+                <ComboBox VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" Height="25" Width="120" Name="ComboBox_Connection_Save" SelectionChanged="ComboBox_Connection_Save_SelectionChanged" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="17*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Label Content="Base de données  :" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Center">
+                <TextBox Style="{StaticResource TextBox_style}" HorizontalAlignment="Right" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="300"  Grid.Column="1" Name="TextBox_IP" TextChanged="TextBox_Database_TextChanged" />
+            </Grid>
+            <Grid Grid.Column="3">
+                <Label Content="Type BDD  : " VerticalAlignment="Center"  HorizontalAlignment="Right" Name="Label_TypeBDD"/>
+            </Grid>
+            <Grid Grid.Column="4">
+                <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="120" Name="ComboBox_SqlType" SelectionChanged="ComboBox_SqlType_SelectionChanged" IsEnabled="False"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="15*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="70*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                    <CheckBox Content="Authentification Windows : Désactivé" VerticalAlignment="Center" Name="CheckBox_Authentification" HorizontalAlignment="Center" Click="CheckBox_Authentification_Checked" IsEnabled="False"></CheckBox>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Label Content="Username : " HorizontalAlignment="Right" VerticalAlignment="Center" Name="Label_Username"></Label>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Style="{StaticResource TextBox_style}" Width="150" Name="TextBox_Username" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Label Content="Password : " HorizontalAlignment="Right" VerticalAlignment="Center" Name="Label_Password"></Label>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <TextBox Style="{StaticResource TextBox_style}" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Name="TextBox_Password"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="50*" />
+                </Grid.RowDefinitions>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button Content="Terminer" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Name="Button_Finish" Click="Button_Finish_Click"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="20" Click="Button_Click">
+                    <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Left" Kind="ContentSave" Foreground="DarkBlue"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="20" Click="Button_Click_1">
+                    <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Left" Kind="Trash" Foreground="Red"/>
+                </Button>
+            </Grid>
+            <Grid Grid.ColumnSpan="4">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Center" Content="Zone pour sauvegarder une configuration de serveur " />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

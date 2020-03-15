@@ -1,4 +1,5 @@
-﻿using ModuleOrmGenerator.dal.tables;
+﻿using ModuleOrmGenerator.Class;
+using ModuleOrmGenerator.dal.tables;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,6 +10,9 @@ namespace ModuleOrmGenerator.dal
     public class DAOFactory
     {
 
+        public ConnectionString DataConnection { get; set; }
+        public Boolean AuthentificationWidnows { get; set; }
+
         private Object connection;
         
         public Object GetConnection(SqlconnectorType type)
@@ -18,7 +22,7 @@ namespace ModuleOrmGenerator.dal
                 switch (type)
                 {
                     case SqlconnectorType.MYSQL:
-                        ConnectionManager mysql = new ConnectionManager("localhost", "bdd_jeux", "root", "");
+                        ConnectionManager mysql = new ConnectionManager(DataConnection.Address, DataConnection.Database, DataConnection.Username, DataConnection.Password);
                         connection = mysql.GetMySqlConnection();
                         break;
                     case SqlconnectorType.SQLSERVER:

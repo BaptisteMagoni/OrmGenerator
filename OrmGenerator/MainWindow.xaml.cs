@@ -1,4 +1,7 @@
 ﻿using Microsoft.Win32;
+using ModuleOrmGenerator.Class;
+using ModuleOrmGenerator.Class.Model;
+using ModuleOrmGenerator.ConfigurationLangue;
 using ModuleOrmGenerator.dal;
 using System;
 using System.Collections.Generic;
@@ -25,23 +28,17 @@ namespace OrmGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public List<TableModel> TableModels { get; set; }
+        public SqlconnectorType CurrentConenctorType { get; set; }
+        public ConnectionString ConnectionString { get; set; }
+        public Boolean AuthentificationWindows { get; set; }
+        public Langue langue { get; set; }
+
         public MainWindow()
         {
-            DAOFactory dao = new DAOFactory();
-            Object connection = dao.GetConnection(SqlconnectorType.MYSQL);
-
-            if (connection != null)
-            {
-
-                InitializeComponent();
-                var test = dao.GetDAOTable().ShowColumnsByTableName(SqlconnectorType.MYSQL, connection);
-
-            }
-            else
-            {
-                MessageBox.Show("Problème de connection à la base de données vérifier votre connexion !");
-                Application.Current.Shutdown();
-            }
+            InitializeComponent();
+            langue = new Langue();
         }
 
         private void Button_Depos_Click(object sender, RoutedEventArgs e)
@@ -58,7 +55,65 @@ namespace OrmGenerator
         private void Button_Configuration_Click(object sender, RoutedEventArgs e)
         {
             Configuration configuration = new Configuration();
-            configuration.Show();
+            configuration.ShowDialog();
+
+            TableModels = configuration.TableModels;
+            CurrentConenctorType = configuration.CurrentConnectorType;
+            ConnectionString = configuration.ConnectionString;
+
+            if (TableModels.Count > 0)
+            {
+                ComboBox_Database.IsEnabled = true;
+
+                foreach (TableModel item in TableModels)
+                    ComboBox_Database.Items.Add(item.Name);
+            }
+        }
+
+        private void ComboBox_Database_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox_Tables.Items.Clear();
+            string databaseName = ComboBox_Database.SelectedItem.ToString();
+            
+            if (!string.IsNullOrEmpty(databaseName))
+            {
+                ComboBox_Tables.IsEnabled = true;
+
+                Table table = new Table();
+                DAOFactory dao = new DAOFactory
+                {
+                    DataConnection = ConnectionString,
+                };
+
+                Object connection = dao.GetConnection(CurrentConenctorType);
+
+                if(connection != null)
+                {
+                    List<string> tables = dao.GetDAOTable().GetTableOfDatabase(CurrentConenctorType, connection, databaseName);
+
+                    if (tables.Count > 0)
+                    {
+                        ComboBox_Tables.HorizontalContentAlignment = HorizontalAlignment.Left;
+                        
+                        foreach (string item in tables)
+                        {
+                            ComboBox_Tables.Items.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        ComboBox_Tables.Items.Add(langue.ComboBox_Table_Empty);
+                        ComboBox_Tables.HorizontalContentAlignment = HorizontalAlignment.Center;
+                    }
+
+                }
+
+            }
+        }
+
+        private void ComboBox_Tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

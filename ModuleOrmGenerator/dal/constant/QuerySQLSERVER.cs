@@ -7,7 +7,7 @@ namespace ModuleOrmGenerator.dal.constant
     class QuerySQLSERVER
     {
 
-        public const string SELECT_COLUMNS_OF_TABLE = "SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('dbo.@table')";
+        public const string SELECT_COLUMNS_OF_TABLE = "SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('{0}')";
 
     }
 }
