@@ -12,6 +12,7 @@ namespace ModuleOrmGenerator.ConfigurationLangue
         public string Authentification_BDD_NOK { get; set; }
         public string Authentification_BDD_OK { get; set; }
         public string ComboBox_Table_Empty { get; set; }
+        public string ComboBox_Saves_Empty { get; set; }
 
         public Langue()
         {
@@ -27,6 +28,7 @@ namespace ModuleOrmGenerator.ConfigurationLangue
                 Authentification_BDD_NOK = LangueRessources.Authentification_BDD_NOK;
                 Authentification_BDD_OK = LangueRessources.Authentification_BDD_OK;
                 ComboBox_Table_Empty = LangueRessources.ComboBox_Table_Empty;
+                ComboBox_Saves_Empty = LangueRessources.ComboBox_Saves_Empty;
             }
             catch(Exception e)
             {

@@ -8,6 +8,7 @@ namespace ModuleOrmGenerator.Class.Model
     {
 
         public string Name { get; set; }
+        public string Type { get; set; }
 
     }
 }

@@ -5,6 +5,7 @@ using ModuleOrmGenerator.ConfigurationLangue;
 using ModuleOrmGenerator.dal;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -79,7 +80,6 @@ namespace OrmGenerator
             {
                 ComboBox_Tables.IsEnabled = true;
 
-                Table table = new Table();
                 DAOFactory dao = new DAOFactory
                 {
                     DataConnection = ConnectionString,
@@ -114,6 +114,38 @@ namespace OrmGenerator
         private void ComboBox_Tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+            DAOFactory dao = new DAOFactory()
+            {
+                DataConnection = ConnectionString
+            };
+
+            Object connection = dao.GetConnection(CurrentConenctorType);
+
+            if(connection != null)
+            {
+                try
+                {
+                    Grid_Table.Visibility = Visibility.Visible;
+                    CreateTable(dao.GetDAOTable().GetColumnsByTableName(CurrentConenctorType, connection, ComboBox_Database.SelectedItem.ToString(), ComboBox_Tables.SelectedItem.ToString()));
+                }
+                catch
+                {
+                    Grid_Table.Visibility = Visibility.Hidden;
+                }
+            }
+
         }
+
+        private void CreateTable(List<ColumnModel> columnModels)
+        {
+            var list = new ObservableCollection<ColumnModel>();
+
+            foreach(var item in columnModels)
+            {
+                list.Add(item);   
+            }
+            Table.ItemsSource = list;
+        }
+
     }
 }

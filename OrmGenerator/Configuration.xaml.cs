@@ -6,6 +6,7 @@ using ModuleOrmGenerator.dal.constant;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OrmGenerator.Entities;
+using OrmGenerator.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,12 +30,18 @@ namespace OrmGenerator
     public partial class Configuration : Window
     {
 
+        #region Attributs
+
         private Langue langue { get; set; }
         public SqlconnectorType CurrentConnectorType { get; set; }
         public List<TableModel> TableModels { get; set; }
         public ConnectionString ConnectionString { get; set; }
         public string Path { get; set; }
-        public List<dynamic> Saves { get; set; }
+        public List<SaveConfigModel> Saves { get; set; }
+
+        #endregion
+
+        #region Constructor
 
         public Configuration()
         {
@@ -45,6 +52,12 @@ namespace OrmGenerator
             LoadSaveConfiguration();
         }
 
+        #endregion
+
+        #region Methods
+
+        #region TextBox
+
         private void TextBox_Database_TextChanged(object sender, TextChangedEventArgs e)
         {
             bool state = TextBox_IP.Text.Length > 0;
@@ -54,7 +67,23 @@ namespace OrmGenerator
 
             if (!state)
                 LoadComboBoxSqlType();
+
+            EnableButton(!string.IsNullOrEmpty(TextBox_IP.Text));
         }
+
+        private void TextBox_Username_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            EnableButton(!string.IsNullOrEmpty(TextBox_Username.Text));
+        }
+
+        private void TextBox_Password_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            EnableButton(!string.IsNullOrEmpty(TextBox_Password.Text));
+        }
+
+        #endregion
+
+        #region ComboBox
 
         private void ComboBox_SqlType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -62,9 +91,47 @@ namespace OrmGenerator
             {
                 CheckBox_Authentification.IsEnabled = !string.IsNullOrEmpty(ComboBox_SqlType.SelectedItem.ToString());
                 CurrentConnectorType = (SqlconnectorType)ComboBox_SqlType.SelectedItem;
+
+                Label_Username.IsEnabled = true;
+                Label_Password.IsEnabled = true;
+                TextBox_Username.IsEnabled = true;
+                TextBox_Password.IsEnabled = true;
             }
 
+            EnableButton();
         }
+
+        private void ComboBox_Connection_Save_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string saveName = ComboBox_Connection_Save.SelectedItem.ToString();
+
+                if (!string.IsNullOrEmpty(saveName))
+                {
+
+                    SaveConfigModel config = JsonMethod<SaveConfigModel>.ReadAllDataJson(Path).Where(x => x.Name == saveName).FirstOrDefault();
+
+                    if (config != null)
+                    {
+
+                        TextBox_IP.Text = config.Address;
+                        TextBox_Password.Text = config.Password;
+                        TextBox_Username.Text = config.Username;
+                        ComboBox_SqlType.Text = config.CurrentConnectorType;
+
+                    }
+
+                    EnableButton();
+
+                }
+            }
+            catch { }
+        }
+
+        #endregion
+
+        #region CheckBox
 
         private void CheckBox_Authentification_Checked(object sender, RoutedEventArgs e)
         {
@@ -74,38 +141,13 @@ namespace OrmGenerator
             Label_Username.IsEnabled = !state;
             Label_Password.IsEnabled = !state;
             CheckBox_Authentification.Content = state ? langue.Authentification_CheckBox_Enable : langue.Authentification_CheckBox_Disable;
+
+            EnableButton();
         }
 
-        private void LoadComboBoxSqlType()
-        {
-            ComboBox_SqlType.Items.Clear();
-            foreach (SqlconnectorType item in (SqlconnectorType[])Enum.GetValues(typeof(SqlconnectorType)))
-                ComboBox_SqlType.Items.Add(item);
-        }
+        #endregion
 
-        private void LoadSaveConfiguration()
-        {
-
-            Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OrmGenerator\\";
-
-            if (!Directory.Exists(Path))
-            {
-                Directory.CreateDirectory(Path);
-            }
-
-            if (!File.Exists(Constant.FILE_NAME_SAVE_CONFIGURATION))
-            {
-                File.Create(Constant.FILE_NAME_SAVE_CONFIGURATION);
-            }
-
-            Path += Constant.FILE_NAME_SAVE_CONFIGURATION;
-
-            foreach(var item in ReadAllDataJson(Path))
-            {
-                ComboBox_Connection_Save.Items.Add(item.name);
-            }
-
-        }
+        #region Button
 
         private void Button_Finish_Click(object sender, RoutedEventArgs e)
         {
@@ -151,50 +193,134 @@ namespace OrmGenerator
             }
         }
 
-        private void ComboBox_Connection_Save_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Save_Configuration_Click(object sender, RoutedEventArgs e)
         {
-            string saveName = ComboBox_Connection_Save.SelectedItem.ToString();
-
-            if (!string.IsNullOrEmpty(saveName))
+            SaveDialog dialog = new SaveDialog();
+            dialog.ShowDialog();
+            string SaveName = dialog.TextBox_Save_Name.Text;
+            if (!string.IsNullOrEmpty(SaveName))
             {
-                
+                SaveConfigModel model = new SaveConfigModel()
+                {
+                    Name = SaveName,
+                    Address = TextBox_IP.Text,
+                    Username = TextBox_Username.Text,
+                    Password = TextBox_Password.Text,
+                    CurrentConnectorType = ComboBox_SqlType.SelectedItem.ToString(),
+                };
+
+                Saves.Add(model);
+
+                var result = JsonMethod<SaveConfigModel>.AddData(Saves);
+                JsonMethod<SaveConfigModel>.WriteDataJson(Path, result);
+                UpdateComboBox_Saves(Saves);
+
+            }
+
+        }
+
+        private void Button_Delete_Configuration_Click(object sender, RoutedEventArgs e)
+        {
+            TrashDialog dialog = new TrashDialog(Path);
+            dialog.Path = Path;
+            dialog.ShowDialog();
+            Saves = dialog.NewSaveConfig;
+            if(Saves != null)
+                UpdateComboBox_Saves(Saves);
+        }
+
+        #endregion
+
+        #region Other Method
+
+        private void LoadComboBoxSqlType()
+        {
+            ComboBox_SqlType.Items.Clear();
+            foreach (SqlconnectorType item in (SqlconnectorType[])Enum.GetValues(typeof(SqlconnectorType)))
+                ComboBox_SqlType.Items.Add(item);
+        }
+
+        private void LoadSaveConfiguration()
+        {
+
+            Path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\OrmGenerator\\";
+
+            if (!Directory.Exists(Path))
+            {
+                Directory.CreateDirectory(Path);
+            }
+
+            Path += Constant.FILE_NAME_SAVE_CONFIGURATION;
+
+            if (!File.Exists(Constant.FILE_NAME_SAVE_CONFIGURATION))
+            {
+                File.Create(Path);
+            }
+
+            Saves = JsonMethod<SaveConfigModel>.ReadAllDataJson(Path);
+
+            if (Saves != null)
+            {
+                foreach (var item in Saves)
+                {
+                    ComboBox_Connection_Save.HorizontalContentAlignment = HorizontalAlignment.Left;
+                    ComboBox_Connection_Save.Items.Add(item.Name);
+                }
+            }
+            else
+            {
+                Saves = new List<SaveConfigModel>();
+                ComboBox_Connection_Save.HorizontalContentAlignment = HorizontalAlignment.Center;
+                ComboBox_Connection_Save.Items.Add(langue.ComboBox_Saves_Empty);
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void EnableButton(bool state = true)
         {
-
+            EnableButtonFinish(state);
+            EnableButtonSave(state);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void EnableButtonFinish(bool state)
         {
+            if (CheckIfHaveAlreadyInformation() || !state)
+                Button_Finish.IsEnabled = state;
+        }
 
+        private void EnableButtonSave(bool state)
+        {
+            if (CheckIfHaveAlreadyInformation() || !state)
+                Button_Save_Configuration.IsEnabled = state;
         }
 
         private bool CheckIfHaveAlreadyInformation()
         {
             bool state = false;
-
-            state = !string.IsNullOrEmpty(TextBox_IP.Text);
-            state = !string.IsNullOrEmpty(ComboBox_SqlType.SelectedItem.ToString());
-            state = !string.IsNullOrEmpty(TextBox_Password.Text);
-            state = !string.IsNullOrEmpty(TextBox_Username.Text);
+            try
+            {
+                state = !string.IsNullOrEmpty(TextBox_IP.Text);
+                state = !string.IsNullOrEmpty(ComboBox_SqlType.SelectedItem.ToString());
+                if (!CheckBox_Authentification.IsChecked.Value)
+                    state = !string.IsNullOrEmpty(TextBox_Username.Text);
+            }
+            catch
+            {
+                return false;
+            }
             return state;
         }
 
-        private List<dynamic> ReadAllDataJson(string path)
+        private void UpdateComboBox_Saves(List<SaveConfigModel> saves)
         {
-
-            using (StreamReader sr = new StreamReader(path))
+            ComboBox_Connection_Save.Items.Clear();
+            foreach(var item in saves)
             {
-                dynamic array = JArray.Parse(sr.ReadToEnd());
-                foreach (var obj in array)
-                {
-                    Saves.Add(obj);
-                }
+                ComboBox_Connection_Save.Items.Add(item.Name);
             }
-
-            return Saves;
         }
+
+        #endregion
+
+        #endregion
     }
 }

@@ -88,13 +88,13 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Style="{StaticResource TextBox_style}" Width="150" Name="TextBox_Username" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBox Style="{StaticResource TextBox_style}" Width="150" Name="TextBox_Username" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False" TextChanged="TextBox_Username_TextChanged" />
                 </Grid>
                 <Grid Grid.Row="2">
                     <Label Content="Password : " HorizontalAlignment="Right" VerticalAlignment="Center" Name="Label_Password"></Label>
                 </Grid>
                 <Grid Grid.Row="2" Grid.Column="1">
-                    <TextBox Style="{StaticResource TextBox_style}" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Name="TextBox_Password"></TextBox>
+                    <TextBox Style="{StaticResource TextBox_style}" InputMethod.InputScope="Password" Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Name="TextBox_Password" IsEnabled="False" TextChanged="TextBox_Password_TextChanged" ></TextBox>
                 </Grid>
             </Grid>
             <Grid Grid.Row="3" Grid.Column="2">
@@ -107,7 +107,7 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="3">
-            <Button Content="Terminer" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Name="Button_Finish" Click="Button_Finish_Click"/>
+            <Button Content="Terminer" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Name="Button_Finish" Click="Button_Finish_Click" IsEnabled="False" />
         </Grid>
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
@@ -117,12 +117,12 @@
                 <ColumnDefinition Width="30*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
-                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="20" Click="Button_Click">
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="20" Name="Button_Save_Configuration" Click="Button_Save_Configuration_Click" IsEnabled="False">
                     <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Left" Kind="ContentSave" Foreground="DarkBlue"/>
                 </Button>
             </Grid>
             <Grid Grid.Column="2">
-                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="20" Click="Button_Click_1">
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="20" Name="Button_Delete_Configuration" Click="Button_Delete_Configuration_Click">
                     <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Left" Kind="Trash" Foreground="Red"/>
                 </Button>
             </Grid>

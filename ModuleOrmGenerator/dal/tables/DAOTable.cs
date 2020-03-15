@@ -13,9 +13,9 @@ namespace ModuleOrmGenerator.dal.tables
     {
         public DAOTable() { }
 
-        public List<string> GetColumnsByTableName(SqlconnectorType type, Object connector, string databaseName, string tableName)
+        public List<ColumnModel> GetColumnsByTableName(SqlconnectorType type, Object connector, string databaseName, string tableName)
         {
-            List<string> tables = new List<string>();
+            List<ColumnModel> tables = new List<ColumnModel>();
 
             try
             {
@@ -29,7 +29,16 @@ namespace ModuleOrmGenerator.dal.tables
                             using (MySqlDataReader reader = command.ExecuteReader())
                             {
                                 while (reader.Read())
-                                    tables.Add(reader.GetString("column_name"));
+                                {
+                                    tables.Add(new ColumnModel()
+                                    {
+                                        Name = reader.GetString("column_name"),
+                                        Catalog = reader.GetString("table_catalog"),
+                                        IsNullable = reader.GetString("is_nullable") == "NO" ? false : true,
+                                        Size = reader.GetInt32("character_maximum_length"),
+                                        Type = reader.GetString("data_type")
+                                    });
+                                }
                             }
                             conn.Close();
                         }
@@ -43,7 +52,7 @@ namespace ModuleOrmGenerator.dal.tables
                             {
                                 while (reader.Read())
                                     for (int i = 0; i < reader.FieldCount; i++)
-                                        tables.Add(reader.GetValue(i).ToString());
+                                        tables.Add(null);
                             }
                             conn.Close();
                         }

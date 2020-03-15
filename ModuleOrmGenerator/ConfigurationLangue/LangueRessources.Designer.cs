@@ -97,6 +97,15 @@ namespace ModuleOrmGenerator.ConfigurationLangue {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à 0 sauvegarde.
+        /// </summary>
+        internal static string ComboBox_Saves_Empty {
+            get {
+                return ResourceManager.GetString("ComboBox_Saves_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Vous n&apos;avez aucune table dans votre Database.
         /// </summary>
         internal static string ComboBox_Table_Empty {

@@ -129,6 +129,9 @@
   <data name="Authentification_CheckBox_Enable" xml:space="preserve">
     <value>Authentification Windows : Activé</value>
   </data>
+  <data name="ComboBox_Saves_Empty" xml:space="preserve">
+    <value>0 sauvegarde</value>
+  </data>
   <data name="ComboBox_Table_Empty" xml:space="preserve">
     <value>Vous n'avez aucune table dans votre Database</value>
   </data>
